@@ -1,4 +1,3 @@
-
 var fs = require('fs'),
     http = require('http'),
     exec = require('child_process').exec,
@@ -84,7 +83,7 @@ function Scanner(options) {
             var uptime = info.stats ? (info.stats.uptime / 60 / 60 / 24).toFixed(1) : "N/A";
             var fee = (info.fee || 0).toFixed(2);
 
-            str += "<div class='p2p-row "+(row++ & 1 ? "row-grey" : "")+"'><div class='p2p-ip'><a href='http://"+ip+":9327/static/' target='_blank'>"+ip+":9327</a></div><div class='p2p-fee'>"+fee+"%</div><div class='p2p-uptime'>"+uptime+" days</div>";
+            str += "<div class='p2p-row "+(row++ & 1 ? "row-grey" : "")+"'><div class='p2p-ip'><a href='http://"+ip+":12347/static/' target='_blank'>"+ip+":12347</a></div><div class='p2p-fee'>"+fee+"%</div><div class='p2p-uptime'>"+uptime+" days</div>";
             str += "<div class='p2p-geo'>";
             if(info.geo) {
                 str += "<a href='http://www.geoiptool.com/en/?IP="+info.ip+"' target='_blank'>"+info.geo.country+" "+"<img src='"+info.geo.img+"' align='absmiddle' border='0'/></a>";
@@ -254,7 +253,7 @@ function Scanner(options) {
 
         var options = {
           host: info.ip,
-          port: 9327,
+          port: 12347,
           path: '/fee',
           method: 'GET'
         };
@@ -266,7 +265,7 @@ function Scanner(options) {
 
         var options = {
           host: info.ip,
-          port: 9327,
+          port: 12347,
           path: '/local_stats',
           method: 'GET'
         };
@@ -278,7 +277,7 @@ function Scanner(options) {
 
         var options = {
           host: info.ip,
-          port: 9327,
+          port: 12347,
           path: '/global_stats',
           method: 'GET'
         };
